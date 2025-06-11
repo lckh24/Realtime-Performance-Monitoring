@@ -24,7 +24,9 @@ This project implements a real-time data pipeline using Apache Kafka, Python's p
 - **Grafana**: Connected to the Postgres database to visualize real-time metrics and create the dashboard.  
 - **Slack Webhook**: Sent Airflow logs and Grafana alerts to Slack for real-time monitoring and incident response.
 
-## Data Pipelines  
+## Data Pipelines    
+![image](https://github.com/user-attachments/assets/ed001f5b-0b9b-4fa8-b78a-93f0c3979d89)
+
 The data pipeline is structured as follows:  
 1. **Data Ingestion**  
    - Metrics are collected on the local host via a FastAPI endpoint using the `psutil` library.  
