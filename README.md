@@ -45,7 +45,7 @@ The data pipeline is structured as follows:
      - anomaly flags when metrics exceed predefined thresholds  
 
 6. **Orchestration & Alerting**  
-   - An Airflow DAG runs every 30 minutes to `REFRESH MATERIALIZED VIEW CONCURRENTLY gold.mv_perf_5min_summary`.  
+   - An Airflow DAG runs every 30 minutes to refresh materialized.  
    - The DAG is configured with email and Slack alerts on failure or SLA miss to ensure pipeline health.  
 
 7. **Visualization & Monitoring**  
