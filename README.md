@@ -53,8 +53,34 @@ The data pipeline is structured as follows:
 7. **Visualization & Monitoring**  
    - Grafana connects to the PostgreSQL data source, queries the `silver_performance` table for sub-minute panels and the gold materialized view for 5-minute summaries, and renders live time-series dashboards (CPU, memory, network I/O, disk) with threshold-based alerting.  
 
+## Repository Structures:  
+``` bash
+.
+├── Dockerfile
+├── app
+│   └── main.py
+├── data
+│   └── airflow
+│       ├── config
+│       ├── data
+│       └── plugins
+├── docker-compose.yaml
+├── load_dataset_into_postgres
+├── pipeline
+│   └── dags
+│       ├── pipelines.py
+│       └── test.py
+├── requirements.txt
+└── scripts
+    └── pj
+        ├── __init__.py
+        ├── consumer.py
+        ├── monitor.py
+        └── producer.py
+```
 
+## Dashboard: 
+![image](https://github.com/user-attachments/assets/3afdf07f-aa99-48d6-9b28-516d81eed06a)
 
-  
 
 
