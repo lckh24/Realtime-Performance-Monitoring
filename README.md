@@ -82,5 +82,13 @@ The data pipeline is structured as follows:
 ## Dashboard: 
 ![image](https://github.com/user-attachments/assets/3afdf07f-aa99-48d6-9b28-516d81eed06a)
 
+## Conclusion:
+A seamless real‐time pipeline that captures every CPU, memory, network, and disk metric, cleans and normalizes it through Bronze→Silver tables, and then rolls up 5-minute aggregates in a Gold materialized view. Airflow quietly refreshes the view on schedule, Kafka guarantees no data loss, and Grafana brings it all to life with live charts and alerts the moment anything crosses my thresholds. It’s an end-to-end solution I can trust today and extend tomorrow as my infrastructure grows.  
+
+## Contacts:  
+For any informations, please contact:  
+* Email: [lecongkhanh242003@gmail.com]()  
+* LinkedIn: [Here](https://www.linkedin.com/in/khanh-le-469818288/)
+
 
 
