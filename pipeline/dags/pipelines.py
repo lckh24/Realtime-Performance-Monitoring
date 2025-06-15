@@ -78,7 +78,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id='first_dag',
+    dag_id='ingest_data',
     default_args=default_args,
     start_date=datetime(2025, 6, 6),
     schedule_interval='@daily'

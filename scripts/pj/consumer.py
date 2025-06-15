@@ -7,7 +7,6 @@ import json
 
 Base = declarative_base()
 
-# Define bảng trong schema bronze với id auto-increment
 class BronzePerformance(Base):
     __tablename__ = 'bronze_performance'
     __table_args__ = {'schema': 'bronze'}
@@ -24,7 +23,6 @@ class BronzePerformance(Base):
     bytes_received = Column(Numeric(18, 0))
     disk_usage = Column(Numeric(5, 2))
 
-# Define bảng trong schema silver với id auto-increment
 class SilverPerformance(Base):
     __tablename__ = 'silver_performance'
     __table_args__ = {'schema': 'silver'}
@@ -42,20 +40,16 @@ class SilverPerformance(Base):
     disk_usage = Column(Numeric(5, 2))
 
 
-# Kết nối PostgreSQL
 engine = create_engine("postgresql+psycopg2://postgres:postgres@localhost:5433/cpu-tracking")
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Tạo schema nếu chưa có
 with engine.connect() as conn:
     conn.execute("CREATE SCHEMA IF NOT EXISTS bronze;")
     conn.execute("CREATE SCHEMA IF NOT EXISTS silver;")
 
-# Tạo bảng nếu chưa tồn tại
 Base.metadata.create_all(engine)
 
-# Hàm transform từ bronze row sang silver
 def transform_row_to_silver(bronze_row):
     try:
         
@@ -115,7 +109,6 @@ for msg in consumer:
     data = json.loads(value)
     print("Received:", data)
 
-    # Ghi raw data vào bronze
     bronze_record = BronzePerformance(
         time=datetime.now(),
         cpu_usage=data.get("cpu_usage_percent"),
